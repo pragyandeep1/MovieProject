@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Movies</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/movie1.css' %}">
+</head>
+<body>
+    {% if movies_list %}
+    <h1>Movie List</h1>
+    <table border="3">
+        <thead>
+            <th>Release Date</th>
+            <th>Show Name</th>
+            <th>Hero Name</th>
+            <th>Heroine Name</th>
+            <th>Audience Rating</th>
+        </thead>
+        {% for movie in movies_list %}
+        <tbody>
+            <tr>
+                <td>{{movie.rdate}}</td>
+                <td>{{movie.moviename}}</td>
+                <td>{{movie.hero}}</td>
+                <td>{{movie.heroine}}</td>
+                <td>{{movie.rating}}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No movies found</p>
+    {% endif %}
+</body>
+</html>
